@@ -53,7 +53,7 @@ install: ## Install packages for project
 	$(POETRY) install || echo skipping install
 
 black: ## Format py files
-	$(POETRY) run black
+	$(POETRY) run black mything
 
 build: ## Build pypi package
 	$(POETRY) build
