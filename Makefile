@@ -16,6 +16,12 @@ ifeq ($(shell ${WHICH} python3),)
 PYTHON=python
 endif
 
+# if no python3 found, revert to generic system python
+ifeq ($(shell ${WHICH} python3.7),)
+else
+PYTHON=python3.7
+endif
+
 # if no poetry found, install it
 ifeq ($(shell ${WHICH} ${POETRY_BIN}),)
 $(info "no poetry found, please wait 30 seconds while installing ...")
