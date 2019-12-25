@@ -1,36 +1,4 @@
-PYTHON=python3
-POETRY_BIN=~/.poetry/bin/poetry
-
-# detect if windows shell is used
-ifeq ($(findstring cmd.exe,$(SHELL)),cmd.exe)
-$(info "using Windows shell cmd.exe")
-DEVNUL := NUL
-WHICH := where
-else
-DEVNUL := /dev/null
-WHICH := which
-endif
-
-# if no python3 found, revert to generic system python
-ifeq ($(shell ${WHICH} python3),)
-PYTHON=python
-endif
-
-# if no python3 found, revert to generic system python
-ifeq ($(shell ${WHICH} python3.7),)
-else
-PYTHON=python3.7
-endif
-
-# if no poetry found, install it
-ifeq ($(shell ${WHICH} ${POETRY_BIN}),)
-$(info "no poetry found, please wait 30 seconds while installing ...")
-ifeq ($(shell ${PYTHON} ./scripts/get-poetry.py -y 2> ${DEVNUL}),)
-$(info "poetry installed")
-endif
-endif
-
-POETRY=$(PYTHON) $(POETRY_BIN)
+POETRY=python -m poetry
 
 default: install black doc build generatejs test aa
 
