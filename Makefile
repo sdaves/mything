@@ -1,4 +1,4 @@
-POETRY=python -m poetry
+POETRY=python ~/.poetry/bin/poetry
 
 default: install black doc build generatejs test aa
 
@@ -10,7 +10,7 @@ doc: ## Build docs
 	mv *.html docs/api/
 	$(POETRY) run pyreverse mything -SA -m y
 	mv *.dot docs/api/
-	$(PYTHON) ./scripts/pyapb.py  -w mything/apiblueprint.py --host https://mything.apiblueprint.org/
+	python ./scripts/pyapb.py  -w mything/apiblueprint.py --host https://mything.apiblueprint.org/
 	mv apiblueprint.md docs/api/
 
 help: ## Show this help message.
