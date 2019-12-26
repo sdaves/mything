@@ -21,6 +21,7 @@ help: ## Show this help message.
 	python3 -c "lines = list(open('Makefile')); match = lambda line: '##' in line; list(map(print,filter(match,lines)))"
 
 setup: ## Install pyenv and poetry to home folder"
+	python3 ./scripts/get-pip.py
 	bash ./scripts/pyenv-installer.sh
 	python3 ./scripts/get-poetry.py
 	python3 -m pip install --user setuptools py-make poetry
