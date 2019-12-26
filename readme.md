@@ -8,12 +8,12 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
 
 ## Requirements
 
-- Install Python 3.7.6 or greater with pip included `https://www.python.org/downloads/`
 - Install git `https://git-scm.com/downloads`
+- Install Python 3.7.6 or greater with pip included `https://www.python.org/downloads/`
 
 ## Setup on Linux
 
-    apt install -y python3-pip git
+    apt install -y git python3-venv python3-openssl python3-setuptools python3-pip 
     
 ## Setup on Mac
 
@@ -27,13 +27,13 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
 
     git clone https://github.com/sdaves/mything
     cd mything
-    python -m pip install py-make poetry
-    python -m pymake setup
+    python3 -m pip install setuptools py-make poetry
+    python3 -m pymake setup
 
 ## Build, Docs, Test
 
-    python -m pymake
+    python3 -m pymake
 
 ## Help
 
-    python -m pymake help
+    python3 -m pymake help
