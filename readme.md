@@ -27,13 +27,25 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
 
     git clone https://github.com/sdaves/mything
     cd mything
-    python3 -m pip install --user setuptools py-make poetry
-    python3 -m pymake setup
+    make setup 
+    
+    # or with pure python
+    
+    python3 -m pip install --user py-make && python3 -m pymake setup
+
 
 ## Build, Docs, Test
 
+    make
+    
+    # or with pure python    
+    
     python3 -m pymake
 
 ## Help
 
+    make help
+    
+    # or with pure python    
+    
     python3 -m pymake help
