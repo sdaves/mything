@@ -1,6 +1,6 @@
 # Mything
 
-Pure Python Domain Driven Design. Create standard wsgi microservices for your Domain, and HTML5 microfrontends by generating ES6!
+Pure Python Domain Driven Design microfrontends. Create standard wsgi microservices for your Domain, and HTML5 microfrontends by generating ES6!
 
 ## Requirements
 
