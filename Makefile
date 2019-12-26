@@ -22,7 +22,6 @@ help: ## Show this help message.
 
 setup: ## Install pyenv and poetry to home folder"
 	python3 ./scripts/get-pip.py --user
-	bash ./scripts/pyenv-installer.sh
 	python3 ./scripts/get-poetry.py
 	python3 -m pip install --user setuptools py-make poetry
 
