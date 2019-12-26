@@ -2,6 +2,10 @@
 
 Pure Python Domain Driven Design microfrontends. Create standard wsgi microservices for your Domain, and HTML5 microfrontends by generating ES6!
 
+## Badges
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sdaves/mything)
+
 ## Requirements
 
 - Install Python 3.7.6 or greater with pip included `https://www.python.org/downloads/`
