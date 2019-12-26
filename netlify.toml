@@ -1,0 +1,3 @@
+[build]
+publish="docs"
+command="python --version && pip install py-make && python -m pymake setup && . ~/.bashrc && pyenv install 3.7.6 && pyenv global 3.7.6 && python --version && pip install py-make poetry && python3 ~/.poetry/bin/poetry install && python -m pymake"
