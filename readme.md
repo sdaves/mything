@@ -4,17 +4,18 @@ Domain driven design using web microfrontends and web microservices all in pure 
 
 ## Setup
 
-Install python 3.6 or greater, then install pymake and run setup by executing:
+With python 3.6 or greater installed, install the pymake package:
 
-    python3 -m pip install py-make
-    python3 -m pymake setup
+    python -c "from pip._internal import main;main()" install py-make
+    
+Then run setup by executing:
+
+    python -m pymake setup
 
 ## Build, Docs, Test
 
-    python3 -m pymake
+    python -m pymake
 
 ## Help
 
-    python3 -m pymake help
-
-
+    python -m pymake help
