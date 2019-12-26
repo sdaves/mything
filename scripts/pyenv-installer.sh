@@ -93,7 +93,7 @@ if ! command -v pyenv 1>/dev/null; then
       echo 'status --is-interactive; and . (pyenv virtualenv-init -|psub)'
       ;;
     * )
-      pyenv && exit 0;
+      (pyenv versions && exit 0 ) || echo pyenv installing to .bashrc ...
       echo "export PATH=\"${PYENV_ROOT}/bin:\$PATH\"" >> ~/.bashrc
       echo "eval \"\$(pyenv init -)\"" >> ~/.bashrc
       echo "eval \"\$(pyenv virtualenv-init -)\"" >> ~/.bashrc
