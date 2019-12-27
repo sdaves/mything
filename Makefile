@@ -5,7 +5,6 @@ default:
 	python3 -m pymake doc
 	python3 -m pymake build
 	python3 -m pymake generatejs
-	python3 -m pymake test
 	python3 -m pymake aa
 
 aa: ## Make some aa (lava) to celebrate
