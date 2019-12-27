@@ -9,11 +9,11 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
 ## Requirements
 
 - Install git `https://git-scm.com/downloads`
-- Install Python 3.7.6 or greater with pip included `https://www.python.org/downloads/`
+- Install Python 3.6 or greater and python3-venv `https://www.python.org/downloads/`
 
 ## Setup on Linux
 
-    apt install -y git python3-venv python3-openssl python3-setuptools python3-pip 
+    apt install -y git python3 python3-venv
     
 ## Setup on Mac
 
