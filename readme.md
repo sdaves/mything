@@ -27,25 +27,34 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
 
     git clone https://github.com/sdaves/mything
     cd mything
+    python3 -m venv venv
+    . venv/bin/activate
+    
+    # with system make
     make setup 
     
-    # or with pure python
+    # or
     
-    python3 -m pip install --user py-make && python3 -m pymake setup
-
+    # without system make
+    python3 -m pip install --user py-make
+    python3 -m pymake setup
 
 ## Build, Docs, Test
 
-    make
+    # with system make
+    make 
     
-    # or with pure python    
+    # or
     
+    # without system make
     python3 -m pymake
 
 ## Help
 
+    # with system make
     make help
     
-    # or with pure python    
+    # or
     
+    # without system make
     python3 -m pymake help
