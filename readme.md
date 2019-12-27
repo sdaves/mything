@@ -39,7 +39,7 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
     python3 -m pip install --user py-make
     python3 -m pymake setup
 
-## Build, Docs, Test
+## Build
 
     # with system make
     make 
@@ -48,6 +48,16 @@ Pure Python Domain Driven Design microfrontends. Create standard wsgi microservi
     
     # without system make
     python3 -m pymake
+
+## Test
+
+    # with system make
+    make test
+    
+    # or
+    
+    # without system make
+    python3 -m pymake test
 
 ## Help
 
