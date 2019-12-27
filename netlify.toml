@@ -1,3 +1,3 @@
 [build]
 publish="docs"
-command="python3 -m venv venv && . venv/bin/activate && make setup && make"
+command="make setup && make"
