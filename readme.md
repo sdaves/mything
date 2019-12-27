@@ -23,7 +23,7 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
     - Creates api instance from IoC container and calls api services
     - Calls remote REST flask processes
     - Contains dependencies on specific infrastructure or packages
-  - Front controller ( [process in 12 factor app](docs/concepts/12factor/ch7.xhtml) )
+  - Front controller ( [process in 12 factor app](https://microthings.netlify.com/concepts/12factor/ch7.xhtml) )
     - Flask process as a wsgi microservice
     - NARWAL REST processes with JWT secured auth
     - Runs on servers / serverless
