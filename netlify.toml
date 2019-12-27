@@ -1,3 +1,3 @@
 [build]
 publish="docs"
-command=". ./scripts/pyenv-installer.sh && . ~/.bashrc && pyenv install 3.8.1 && pyenv global 3.8.1 && make setup && make"
+command="python3 -m venv venv && . venv/bin/activate && make setup && make"
