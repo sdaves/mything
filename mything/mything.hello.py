@@ -7,6 +7,6 @@ class Hello(Component):
 
     def render(self):
         return h('p', {}, self.display)
-                        )
+    
 element = h(Hello, {'name': 'React!'})
 render(element, 'container')
