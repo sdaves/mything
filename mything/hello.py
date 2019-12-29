@@ -13,4 +13,4 @@ def mount(self):
     self.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
     render(h(App, {'page': self.getAttribute('page')}), mountPoint)
     
-if 'window' in globals(): window.define(mount, 'mything-hello', ['page'])
+if 'window' in globals(): defineElement('mything-hello', ['page'], mount)
