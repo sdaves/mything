@@ -1,23 +1,12 @@
 from standalone.module import Component, h, render
 
-class Hello(Component) :
-    displayName = 'Hello'
+class Hello(Component):
+    def __init___(self):
+        super().__init__()
+        self.display = 'Hello'
 
-    getInitialState = lambda: dict(counter=0}
-
-    updateCounter = lambda: this.setState({'counter': this.state['counter']+1})
-
-    componentDidMount = lambda: setInterval(this.updateCounter, 1000)
-
-    'render': lambda: h('div', {'className': 'maindiv'},
-                          h('h1', None, 'Hello ', this.props['name']),
-                          h('p', None, 'Lorem ipsum dolor sit ame.'),
-                          h('p', None, 'Counter: ', this.state['counter'])
+    def render(self):
+        return h('p', {}, self.display)
                         )
-})
-
-
-# Render the component in a 'container' div
-
 element = h(Hello, {'name': 'React!'})
 render(element, 'container')
