@@ -8,16 +8,9 @@ class Hello(Component):
     def render(self):
         return h('p', {}, self.display)
     
-w = getattr(globals(), 'window', dict(HTMLElement=object))
-
-class Element(w['HTMLElement']):
-    def connectedCallback(self):
-        mountPoint = w['document'].createElement('span')
-        self.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
-        render(h(App, {'page': self.getAttribute('page')}), mountPoint)
-        
-    def define(self):
-        if 'customElements' not in w: return
-        w['customElements'].define('mything-hello', Element, ["page"])
-
-Element().define()
+def mount(self):
+    mountPoint = document.createElement('span')
+    self.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
+    render(h(App, {'page': self.getAttribute('page')}), mountPoint)
+    
+if 'window' in globals(): window.define(mount, 'mything-hello', ['page'])
