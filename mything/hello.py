@@ -1,4 +1,4 @@
-from preact import h, Component, render
+from mything.preact import h, Component, render
 
 class Hello(Component):
     def __init___(self):
