@@ -1,8 +1,14 @@
-def h(name, props={}, children=[]):
-    pass
-    
-class Component:
+def h(*args):
     pass
 
-def render(a, b, c):
+def compose(*args):
     pass
+
+def withProps(*args):
+    pass
+
+def withState(*args):
+    pass 
+
+def attach(*args):
+    pass 
