@@ -1,16 +1,17 @@
-from mything.preact import h, Component, render
+from mything.preact import h, compose, withProps, withState, attach
 
-class Hello(Component):
-    def __init___(self):
-        super().__init__()
-        self.display = 'Hello'
+def Hello(props={'page':'Home', 'counter':0, 'setCounter':lambda: None}):
+    return h('p', {}, page)
 
-    def render(self):
-        return h('p', {}, self.display)
-    
+def HelloComposer(props={'page':'Home'}):
+    return compose(
+      withProps({'page': props['page']),
+      withState('counter', 'setCounter', 0)
+    )
+
 def mount(self):
     mountPoint = document.createElement('span')
     self.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
-    render(h(App, {'page': self.getAttribute('page')}), mountPoint)
-    
+    render(h(attach(HelloComposer())(Hello), {'page': self.getAttribute('page')}), mountPoint)
+
 if 'window' in globals(): defineElement('mything-hello', ['page'], mount)
