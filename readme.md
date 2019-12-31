@@ -1,6 +1,6 @@
 # microthings
 
-Microfrontends and Microservices with 100% Pure Python and Domain Driven Design . Flask for your processes with SPA HTML5 static js interfaces using generated ES6 modules. 
+Microservices and Microfrontends with 100% Pure Python and Domain Driven Design. Serverless Bottle.py for your server processes with webcomponents generated using transcrypt and running on preact.
 
 https://microthings.netlify.com/
 
