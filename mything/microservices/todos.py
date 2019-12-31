@@ -8,7 +8,8 @@ class Todos:
         self._setup_run()
         
     def index(self):
-        return json.dumps(dict(data=[item+'='+self._bottle.request.query[item] for item in self._bottle.request.query]))
+        query = self._bottle.request.query
+        return json.dumps(dict(data=[item+'='+query[item] for item in query]))
         
     def _setup_run(self):
         self._app.route('/todos')(lambda: self.index())
@@ -16,7 +17,7 @@ class Todos:
 
 if __name__ == '__main__':
     from dependencies import Injector
-    import .lib.bottle as b
+    import bottle as b
     class Container(Injector):
         todos = Todos
         app = b.Bottle()
