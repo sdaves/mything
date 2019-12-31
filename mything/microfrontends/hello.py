@@ -1,4 +1,4 @@
-from .html import h, compose, withProps, withState, attach
+from .lib.html import h, compose, withProps, withState, attach
 
 def render(props={'page':'Home', 'counter':0, 'setCounter':lambda x: None}):
     return h('div', {}, [
