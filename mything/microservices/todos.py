@@ -7,24 +7,23 @@ class Todos:
         self._bottle = bottle
         self._setup()
         
-    def list(self):
+    def get_list(self):
         query = self._bottle.request.query
         return json.dumps(dict(data=[item+'='+query[item] for item in query]))
     
-    def single(self, name):
+    def get_single(self, name):
         return json.dumps(dict(data=[name]))
     
     def _setup(self):
-        self.run = self._app.run
         route = self._app.route
-        route('/todos')(self.list)
-        route('/todos/<name>')(self.single)
+        route('/todos')(self.get_list)
+        route('/todos/<name>')(self.get_single)
 
 if __name__ == '__main__':
-    from dependencies import Injector
-    import bottle as b
-    class Container(Injector):
+    import dependencies, bottle
+    class Container(dependencies.Injector):
         todos = Todos
-        app = b.Bottle()
-        bottle = b
-    Container.todos.run()
+        app = bottle.Bottle()
+        bottle = bottle
+    todos = Container.todos # this creates the todos object
+    Container.app.run()
