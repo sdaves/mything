@@ -1,1 +1,1 @@
-import mything.hello
+import .hello
