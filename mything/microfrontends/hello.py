@@ -1,9 +1,33 @@
-class CustomElement:
-    def __init__(self, html, tag, attributes=[], mount=lambda x: self.mount(x)):
+import typing
+
+class IHtml:
+    def h(*args):
+        pass
+    
+    def compose(*args):
+        pass
+    
+    def withProps(*args):
+        pass
+    
+    def withState(*args):
+        pass 
+    
+    def attach(*args):
+        pass 
+    
+class BaseElement:
+    def __init__(self, html: IHtml, tag: str, attributes: [], mount: typing.Callable):
         super().__init__()
         self._html = html
+        self._tag = tag
+        self._attributes = attributes
+        self._mount = mount        
+        
+    def define(self):
         if 'window' in globals(): 
-            window.defineElement(tag, attributes, mount)
+            print('define', self._tag)
+            # __pragma__ ('js', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, self._cls, self._attributes);')
         
     def config(self):
         return self._html.compose()
@@ -20,10 +44,9 @@ class CustomElement:
     def render(self, props):
         return self._html.h('span', {}, 'render not implemented')
 
-class Hello(CustomElement):    
-    def __init__(self, html):
-        super().__init__(html, 'mything-hello', ['page'])
-        self._html = html
+class CounterElement(BaseElement):    
+    def __init__(self, html: IHtml):
+        super().__init__(html, 'mything-counter', ['page'], lambda x: self.mount(x))
         
     def config(self):
         return self._html.compose(
@@ -37,3 +60,14 @@ class Hello(CustomElement):
             props['counter'], 
             self._html.h('button', {'onClick': lambda: props['setCounter'](props['counter']+1)}, '+1')
         ])
+    
+if __name__ == '__main__': CounterElement(window.CustomHtml).define()
+    
+class HelloElement(BaseElement):    
+    def __init__(self, html: IHtml):
+        super().__init__(html, 'mything-hello', ['name'], lambda x: self.mount(x))
+        
+    def render(self, props={'name':'Guest}):
+        return self._html.h('span', {}, 'Hello {0}!'.format(props['name']))
+
+if __name__ == '__main__': HelloElement(window.CustomHtml).define()
