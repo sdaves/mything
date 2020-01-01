@@ -1,1 +1,1 @@
-import mmything.microfrontends.hello
+import mything.microfrontends.hello
