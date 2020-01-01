@@ -1,6 +1,6 @@
 from mything.microfrontends.core import BaseFrontend
 
-# __pragma__ ('js', '{}', 'HelloFrontend(window.CustomHtml).define()')
+# __pragma__ ('js', '{}', 'setTimeout(()=>HelloFrontend(window.CustomHtml).define(),1)')
 
 class HelloFrontend(BaseFrontend):    
     def __init__(self, html):
