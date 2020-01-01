@@ -26,7 +26,7 @@ class BaseFrontend:
         
     def define(self):
         print('define', self._tag)
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, self._cls, self._attributes);')
+        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, cls, self._attributes);')
         
     def config(self):
         return self._html.compose()
