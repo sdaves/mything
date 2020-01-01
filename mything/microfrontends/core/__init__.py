@@ -29,7 +29,7 @@ class BaseFrontend:
         # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, cls, self._attributes);')
         
     def config(self):
-        return self._html.compose()
+        return self._html.compose(self._html.withProps())
     
     def mount(self, element):
         mountPoint = window.document.createElement('span')
