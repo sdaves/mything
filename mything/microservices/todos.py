@@ -25,5 +25,5 @@ if __name__ == '__main__':
         todos = Todos
         app = bottle.Bottle()
         bottle = bottle
-    todos = Container.todos # this creates the todos object
+    todos = Container.todos # create the todos object for route setup
     Container.app.run()
