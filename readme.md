@@ -74,46 +74,24 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 
 ## Setup development tools (all platforms)
 
-    git clone https://github.com/sdaves/mything
-    cd mything
+    git clone https://github.com/sdaves/microthings
+    cd microthings
     python3 -m venv venv
-    . venv/bin/activate
-    
-    # with system make
-    make setup 
-    
-    # or
-    
-    # without system make
-    python3 -m pip install py-make
-    python3 -m pymake setup
+    source venv/bin/activate
+    pip install py-make
+    pymake setup # or make setup
 
 ## Build
 
-    # with system make
-    make 
-    
-    # or
-    
-    # without system make
-    python3 -m pymake
+    source venv/bin/activate
+    pymake # or make
 
 ## Test
 
-    # with system make
-    make test
-    
-    # or
-    
-    # without system make
-    python3 -m pymake test
+    source venv/bin/activate
+    pymake test # or make test
 
 ## Help
 
-    # with system make
-    make help
-    
-    # or
-    
-    # without system make
-    python3 -m pymake help
+    source venv/bin/activate
+    pymake help # or make help
