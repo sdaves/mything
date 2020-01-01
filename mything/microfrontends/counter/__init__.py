@@ -1,6 +1,6 @@
 from mything.microfrontends.core import BaseFrontend
 
-# __pragma__ ('js', '{}', 'CounterFrontend(window.CustomHtml).define()')
+# __pragma__ ('js', '{}', 'setTimeout(()=>CounterFrontend(window.CustomHtml).define(),1)')
 
 class CounterFrontend(BaseFrontend):    
     def __init__(self, html):
