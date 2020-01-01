@@ -38,7 +38,7 @@ class BaseFrontend:
         for item in self._attributes:
             attrs[item] = element.getAttribute(item)
         custom = self._html.h(self._html.attach(self.config())(self.render), attrs)
-        self._html.render(custom, mountPoint)    
+        self._html.render(self._html.h(self._html.ProppyProvider, {}, custom), mountPoint)    
         
     def render(self, props):
         return self._html.h('span', {}, 'render not implemented')    
