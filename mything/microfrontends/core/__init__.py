@@ -35,7 +35,7 @@ class BaseFrontend:
         mountPoint = window.document.createElement('span')
         element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
         attrs = dict()
-        for item in self.attributes:
+        for item in self._attributes:
             attrs[item] = element.getAttribute(item)
         custom = self._html.h(self._html.attach(self.config())(self.render), attrs)
         self._html.render(custom, mountPoint)    
