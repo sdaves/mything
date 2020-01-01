@@ -3,7 +3,7 @@ from mything.microfrontends.core import BaseFrontend
 # __pragma__ ('js', '{}', 'CounterFrontend(window.CustomHtml).define()')
 
 class CounterFrontend(BaseFrontend):    
-    def __init__(self, html: IHtml):
+    def __init__(self, html):
         super().__init__(html, 'mything-counter', ['page'], lambda x: self.mount(x))
         
     def config(self):
