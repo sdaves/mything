@@ -1,5 +1,7 @@
 from mything.microfrontends.core import BaseFrontend
 
+# __pragma__ ('js', '{}', 'CounterFrontend(window.CustomHtml).define()')
+
 class CounterFrontend(BaseFrontend):    
     def __init__(self, html: IHtml):
         super().__init__(html, 'mything-counter', ['page'], lambda x: self.mount(x))
@@ -16,5 +18,3 @@ class CounterFrontend(BaseFrontend):
             props['counter'], 
             self._html.h('button', {'onClick': lambda: props['setCounter'](props['counter']+1)}, '+1')
         ])
-    
-if 'window' in globals(): CounterFrontend(window.CustomHtml).define()
