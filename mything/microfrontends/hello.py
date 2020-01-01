@@ -31,7 +31,7 @@ class BaseElement:
         
     def config(self):
         return self._html.compose()
-
+    
     def mount(self, element):
         mountPoint = window.document.createElement('span')
         element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
@@ -67,7 +67,7 @@ class HelloElement(BaseElement):
     def __init__(self, html: IHtml):
         super().__init__(html, 'mything-hello', ['name'], lambda x: self.mount(x))
         
-    def render(self, props={'name':'Guest}):
+    def render(self, props={'name':'Guest'}):
         return self._html.h('span', {}, 'Hello {0}!'.format(props['name']))
 
 if __name__ == '__main__': HelloElement(window.CustomHtml).define()
