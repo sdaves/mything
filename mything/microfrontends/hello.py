@@ -1,7 +1,9 @@
 class CustomElement:
-    def __init__(self, html):
+    def __init__(self, html, tag, attributes=[], mount=lambda x: self.mount(x)):
         super().__init__()
         self._html = html
+        if 'window' in globals(): 
+            window.defineElement(tag, attributes, mount)
         
     def config(self):
         return self._html.compose()
@@ -14,12 +16,13 @@ class CustomElement:
             attrs[item] = element.getAttribute(item)
         custom = self._html.h(self._html.attach(self.config())(self.render), attrs)
         self._html.render(custom, mountPoint)    
+        
+    def render(self, props):
+        return self._html.h('span', {}, 'render not implemented')
 
-class Hello(CustomElement):
-    attributes = ['page']
-    
+class Hello(CustomElement):    
     def __init__(self, html):
-        super().__init__(html)
+        super().__init__(html, 'mything-hello', ['page'])
         self._html = html
         
     def config(self):
@@ -34,5 +37,3 @@ class Hello(CustomElement):
             props['counter'], 
             self._html.h('button', {'onClick': lambda: props['setCounter'](props['counter']+1)}, '+1')
         ])
-
-if 'window' in globals(): window.defineElement('mything-hello', Hello.attributes, lambda x: Hello().mount(x))
