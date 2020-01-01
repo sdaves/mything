@@ -1,4 +1,4 @@
-from mything.microfrontends import BaseFrontend
+from mything.microfrontends.core import BaseFrontend
 
 class HelloFrontend(BaseFrontend):    
     def __init__(self, html):
