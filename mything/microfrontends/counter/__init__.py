@@ -17,4 +17,4 @@ class CounterFrontend(BaseFrontend):
             self._html.h('button', {'onClick': lambda: props['setCounter'](props['counter']+1)}, '+1')
         ])
     
-if __name__ == '__main__': CounterFrontend(window.CustomHtml).define()
+if 'window' in globals(): CounterFrontend(window.CustomHtml).define()
