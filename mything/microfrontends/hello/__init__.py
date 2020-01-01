@@ -7,4 +7,4 @@ class HelloFrontend(BaseFrontend):
     def render(self, props={'name':'Guest'}):
         return self._html.h('span', {}, 'Hello {0}!'.format(props['name']))
 
-if __name__ == '__main__': HelloFrontend(window.CustomHtml).define()
+if 'window' in globals(): HelloFrontend(window.CustomHtml).define()
