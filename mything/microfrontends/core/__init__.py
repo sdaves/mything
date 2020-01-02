@@ -32,7 +32,7 @@ class BaseFrontend:
         # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, cls, self._attributes);')
         
     def config(self):
-        return self._html.compose(self._html.withProps())
+        return self._html.compose(self._html.withProps({ 'foo': 'foo value' }))
     
     def mount(self, element):
         mountPoint = window.document.createElement('span')
@@ -40,8 +40,8 @@ class BaseFrontend:
         attrs = dict()
         for item in self._attributes:
             attrs[item] = element.getAttribute(item)
-        custom = self._html.h(self._html.attach(self.config())(self.render()), attrs)
-        self._html.render(self._html.h(self._html.ProppyProvider, {}, custom), mountPoint)    
+        custom = self._html.attach(self.config())(self.render)
+        self._html.render(self._html.h(self._html.ProppyProvider, {}, self._html.h(custom)), mountPoint)    
         
     def render(self, props):
         return self._html.h('span', {}, 'render not implemented')    
