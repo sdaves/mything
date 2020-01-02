@@ -1,7 +1,6 @@
-from mything.microfrontends.core import IFrontend
+from mything.microfrontends.core import IFrontend, define
 
-# __pragma__ ('js', '{}', 'setTimeout(()=>HelloFrontend(window.CustomHtml).define(),1)')
-
+@define
 class HelloFrontend(IFrontend):    
     def __init__(self, html):
         super().__init__(html, 'mything-hello', ['name'], lambda x: self.mount(x))
