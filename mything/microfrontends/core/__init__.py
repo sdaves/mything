@@ -1,4 +1,7 @@
+
+# __pragma__ ('skip')
 import typing
+# __pragma__ ('noskip')
 
 class IHtml:
     def h(*args):
@@ -19,7 +22,7 @@ class IHtml:
     def render(*args):
         pass 
     
-class BaseFrontend:
+class IFrontend:
     def __init__(self, html: IHtml, tag: str, attributes: [], mount: typing.Callable):
         super().__init__()
         self._html = html
