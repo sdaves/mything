@@ -14,6 +14,9 @@ class IHtml:
         pass 
     
     def attach(*args):
+        pass
+    
+    def render(*args):
         pass 
     
 class BaseFrontend:
@@ -37,7 +40,7 @@ class BaseFrontend:
         attrs = dict()
         for item in self._attributes:
             attrs[item] = element.getAttribute(item)
-        custom = self._html.h(self._html.attach(self.config())(self.render), attrs)
+        custom = self._html.h(self._html.attach(self.config())(self.render()), attrs)
         self._html.render(self._html.h(self._html.ProppyProvider, {}, custom), mountPoint)    
         
     def render(self, props):
