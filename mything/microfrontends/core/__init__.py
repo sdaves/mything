@@ -39,8 +39,8 @@ class BaseFrontend:
         attrs = dict()
         for item in self._attributes:
             attrs[item] = element.getAttribute(item)
-        custom = self._html.attach(self.config())(self.render())
-        provider = self._html.h(self._html.ProppyProvider, {}, self._html.h(custom))
+        custom = self.render()
+        provider = self._html.h(self._html.ProppyProvider, {}, [custom])
         self._html.render(provider, mountPoint)    
         element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
         
