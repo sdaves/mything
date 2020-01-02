@@ -36,12 +36,12 @@ class BaseFrontend:
     
     def mount(self, element):
         mountPoint = window.document.createElement('span')
-        element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
         attrs = dict()
         for item in self._attributes:
             attrs[item] = element.getAttribute(item)
-        custom = self._html.attach(self.config())(self.render)
-        self._html.render(self._html.h(self._html.ProppyProvider, {}, self._html.h(custom)), mountPoint)    
+        custom = self._html.attach(self.config())(self.render())
+        self._html.render(self._html.h(self._html.ProppyProvider, {}, custom), mountPoint)    
+        element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
         
     def render(self, props):
         return self._html.h('span', {}, 'render not implemented')    
