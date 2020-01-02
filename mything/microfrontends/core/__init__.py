@@ -3,7 +3,7 @@ import typing
 # __pragma__ ('noskip')
 
 def define(fn):
-    # __pragma__ ('js', '{}', 'fn(window.CustomHtml).define()')
+    # __pragma__ ('js', '{}', 'setTimeout(()=>fn(window.CustomHtml).define(),1)')
     return fn
 
 class IHtml:
