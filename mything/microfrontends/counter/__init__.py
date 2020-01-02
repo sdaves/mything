@@ -1,8 +1,8 @@
-from mything.microfrontends.core import BaseFrontend
+from mything.microfrontends.core import IFrontend
 
 # __pragma__ ('js', '{}', 'setTimeout(()=>CounterFrontend(window.CustomHtml).define(),1)')
 
-class CounterFrontend(BaseFrontend):    
+class CounterFrontend(IFrontend):    
     def __init__(self, html):
         super().__init__(html, 'mything-counter', ['page'], lambda x: self.mount(x))
         
