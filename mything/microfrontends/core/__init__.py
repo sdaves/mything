@@ -1,7 +1,10 @@
-
 # __pragma__ ('skip')
 import typing
 # __pragma__ ('noskip')
+
+def define(fn):
+    # __pragma__ ('js', '{}', 'fn(window.CustomHtml).define()')
+    return fn
 
 class IHtml:
     def h(*args):
