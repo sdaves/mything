@@ -16,20 +16,18 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 
 - Infrastructure layer
   - Client
-    - HTML5 Static SPA generated microfrontend
+    - Preact UI packaged as WebComponents using transcrypt
     - Mobile and Web Offline access using service workers
     - Runs on user devices
-    - Implements application service interfaces with IoC container
-    - Creates api instance from IoC container and calls api services
-    - Calls remote REST flask processes
+    - Calls remote REST stateless processes
     - Contains dependencies on specific infrastructure or packages
   - Front controller ( [process in 12 factor app](https://microthings.netlify.com/concepts/12factor/ch7.xhtml) )
-    - Flask process as a wsgi microservice
-    - NARWAL REST processes with JWT secured auth
+    - Bottle.py stateless processes as wsgi microservices
+    - NARWAL REST with JWT secured auth
     - Runs on servers / serverless
     - Implements application service interfaces with IoC container
     - Creates api instance from IoC container and calls api services
-    - Calls remote REST flask processes
+    - Calls remote REST stateless processes
     - Contains dependencies on specific infrastructure or packages
 - Application layer
   - Emit IO with application service interfaces
