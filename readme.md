@@ -1,6 +1,6 @@
 # microthings
 
-Microservices and Microfrontends with 100% Pure Python and Domain Driven Design. Serverless Bottle.py for your server processes with webcomponents generated using transcrypt and running on preact.
+Microservices and Microfrontends with 100% Pure Python and Domain Driven Design. Serverless Bottle.py for your stateless processes and a Preact UI packaged as WebComponents using transcrypt.
 
 https://microthings.netlify.com/
 
