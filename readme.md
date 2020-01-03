@@ -92,7 +92,7 @@ You can copy that file too when deploying, or just `pip install bottle` to insta
 ## Setup Requirements
 
 - Install git `https://git-scm.com/downloads`
-- Install Python 3.6 or greater and python3-venv `https://www.python.org/downloads/`
+- Install Python 3.6 or greater with python3-venv `https://www.python.org/downloads/`
 
 ## Setup on Linux
 
@@ -106,7 +106,7 @@ You can copy that file too when deploying, or just `pip install bottle` to insta
 
     choco install python3 git
 
-## Setup development tools (bash on all platforms)
+## Setup development tools (using bash on all platforms)
 
     git clone https://github.com/sdaves/microthings
     cd microthings
