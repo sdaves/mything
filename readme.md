@@ -75,7 +75,7 @@ You can copy that file too when deploying, or just `pip install bottle` to insta
   - Mostly I/O Services
   - Use Case Backing Services
   - [API](mything/api.py)
-- Domain layel
+- Domain layer
   - All Ubiquitus Language 
   - Accepts only domain model types to domain services
   - Emit IO with repository interfaces
