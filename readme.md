@@ -10,7 +10,44 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sdaves/mything)
 
-# Layered Architecture
+## Sample Microfrontend
+
+```python
+from mything.microfrontends.core import IFrontend, define
+
+@define
+class HelloFrontend(IFrontend):    
+    def __init__(self, html):
+        super().__init__(html, 'mything-hello', ['name'], lambda x: self.mount(x))
+
+    def render(self, props={'name':'Guest'}):
+        return self._html.h('span', {}, 'Hello {0}!'.format(props['name']))
+```
+
+Transcrypt compiles this to `hello.js` and it can be included as a js module in the browser or nodejs.
+
+## Sample Microservice
+
+```python
+class Hello:
+    def __init__(self, app):
+        super().__init__()
+        app.route('/hello')(self.hello)
+        
+    def hello(self):
+        return 'Hello!'
+
+if __name__ == '__main__':
+    import bottle
+    app = bottle.Bottle()
+    Hello(app)
+    app.run()
+```
+
+This microservice depends on only 1 external file to run: [bottle.py](scripts/bottle.py).
+You can copy that file too when deploying, or just `pip install bottle` to install the latest.
+
+## Layered Architecture
 
 ![Layered](docs/api/layered-architecture.jpg)
 
@@ -53,7 +90,7 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
   - Contains zero dependencies on specific infrastructure or packages
   - [Model](mything/model.py)
 
-## Requirements
+## Setup Requirements
 
 - Install git `https://git-scm.com/downloads`
 - Install Python 3.6 or greater and python3-venv `https://www.python.org/downloads/`
@@ -70,7 +107,7 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 
     choco install python3 git
 
-## Setup development tools (all platforms)
+## Setup development tools (bash on all platforms)
 
     git clone https://github.com/sdaves/microthings
     cd microthings
