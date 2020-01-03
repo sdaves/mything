@@ -10,7 +10,7 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sdaves/mything)
 
-## Sample Microfrontend
+## Simple Microfrontend (Client)
 
 ```python
 from mything.microfrontends.core import IFrontend, define
@@ -26,7 +26,7 @@ class HelloFrontend(IFrontend):
 
 Transcrypt compiles this to `hello.js` and it can be included as a js module in the browser or nodejs.
 
-## Sample Microservice
+## Simple Microservice (Front Controller)
 
 ```python
 class Hello:
