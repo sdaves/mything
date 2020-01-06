@@ -35,12 +35,12 @@ class IFrontend:
         
     def define(self):
         print('define', self._tag)
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this);}};window.customElements.define(self._tag, cls, self._attributes);')
+        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this, window);}};window.customElements.define(self._tag, cls, self._attributes);')
         
     def config(self):
         return self._html.compose(self._html.withProps({ 'foo': 'foo value' }))
     
-    def mount(self, element):
+    def mount(self, element, window):
         mountPoint = window.document.createElement('span')
         attrs = dict()
         for item in self._attributes:
