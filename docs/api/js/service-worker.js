@@ -4,7 +4,7 @@ if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
   
   self.addEventListener('fetch', (event) => {
-    if (event.request.url === '/') {
+    if (event.request.url === '/' || event.request.url === '/?source=pwa' ) {
       const staleWhileRevalidate = new workbox.strategies.StaleWhileRevalidate();
       event.respondWith(staleWhileRevalidate.handle({event}));
     }
