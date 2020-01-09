@@ -30,6 +30,8 @@ def mount(html, element, mountPoint, instance, attributes):
     html.render(provider, mountPoint)    
     element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
 
-def webcomponent(fn, tag: str, attributes: []):
-    # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),fn(window.CustomHtml),attributes);}};window.customElements.define(tag, cls, attributes);')
-    return fn
+def webcomponent(tag: str, attributes: []):
+    def wrap(fn):
+        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),fn(window.CustomHtml),attributes);}};window.customElements.define(tag, cls, attributes);')
+        return fn
+    return wrap
