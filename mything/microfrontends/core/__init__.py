@@ -31,8 +31,9 @@ def webcomponent(tag: str, attributes: [], customMount=None):
         provider = html.h(html.ProppyProvider, {}, [custom])
         html.render(provider, mountPoint)    
         root = element.attachShadow({ 'mode': 'open' })
-        style.rel="stylesheet"
-        style.href="js/pure-min.css"
+        style.setAttribute('rel','stylesheet')
+        style.setAttribute('href','js/pure-min.css')
+        style.setAttribute('type','text/css')
         root.appendChild(style)
         root.appendChild(mountPoint)
 
