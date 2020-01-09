@@ -3,10 +3,6 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
   
-  workbox.routing.setDefaultHandler(
-      new workbox.strategies.StaleWhileRevalidate()
-  );
-  
   workbox.routing.registerRoute(
     /\.js$/,
     new workbox.strategies.NetworkFirst()
@@ -14,7 +10,9 @@ if (workbox) {
   
   workbox.routing.registerRoute(
     /\.html$/,
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.CacheFirst({
+      cacheName: 'html-cache'
+    })
   );
 
   workbox.routing.registerRoute(
