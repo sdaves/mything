@@ -4,6 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="Description" content="Microservices and Microfrontends with 100% Pure Python and Domain Driven Design. Serverless Bottle.py for your server processes with webcomponents generated using transcrypt and running on preact. https://microthings.netlify.com/">
 <title>microthings</title>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('js/service-worker.js');
+  });
+}
+</script>
 <script defer src="js/custom-elements.min.js"></script>
 <script defer src="js/custom-preact.min.js"></script>
 <script defer type="module" src="js/org.transcrypt.__runtime__.js"></script>
