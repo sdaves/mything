@@ -2,8 +2,17 @@
 import typing
 # __pragma__ ('noskip')
 
-def define(fn):
-    # __pragma__ ('js', '{}', 'setTimeout(()=>fn(window.CustomHtml).define(),1)')
+def mount(html, element, mountPoint, instance, attributes):
+    attrs = dict()
+    for item in attributes:
+        attrs[item] = element.getAttribute(item)
+    custom = instance.render(attrs)
+    provider = html.h(html.ProppyProvider, {}, [custom])
+    html.render(provider, mountPoint)    
+    element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
+
+def define(fn, tag: str, attributes: []):
+    # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),fn(window.CustomHtml),attributes);}};window.customElements.define(tag, cls, attributes);')
     return fn
 
 class IHtml:
@@ -23,31 +32,4 @@ class IHtml:
         pass
     
     def render(*args):
-        pass 
-    
-class IFrontend:
-    def __init__(self, html: IHtml, tag: str, attributes: [], mount: typing.Callable):
-        super().__init__()
-        self._html = html
-        self._tag = tag
-        self._attributes = attributes
-        self._mount = mount        
-        
-    def define(self):
-        print('define', self._tag)
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){self._mount(this, window.document.createElement("span"));}};window.customElements.define(self._tag, cls, self._attributes);')
-        
-    def config(self):
-        return self._html.compose(self._html.withProps({ 'foo': 'foo value' }))
-    
-    def mount(self, element, mountPoint):
-        attrs = dict()
-        for item in self._attributes:
-            attrs[item] = element.getAttribute(item)
-        custom = self.render(attrs)
-        provider = self._html.h(self._html.ProppyProvider, {}, [custom])
-        self._html.render(provider, mountPoint)    
-        element.attachShadow({ 'mode': 'open' }).appendChild(mountPoint)
-        
-    def render(self, props):
-        return self._html.h('span', {}, 'render not implemented')    
+        pass
