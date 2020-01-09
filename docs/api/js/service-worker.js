@@ -3,6 +3,13 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 if (workbox) {
   console.log(`Yay! Workbox is loaded 🎉`);
   
+  self.addEventListener('fetch', (event) => {
+    if (event.request.url === '/') {
+      const staleWhileRevalidate = new workbox.strategies.StaleWhileRevalidate();
+      event.respondWith(staleWhileRevalidate.handle({event}));
+    }
+  });
+
   workbox.routing.registerRoute(
     /\.js$/,
     new workbox.strategies.NetworkFirst()
