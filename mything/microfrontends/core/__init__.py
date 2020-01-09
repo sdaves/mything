@@ -34,7 +34,7 @@ def mount(html, element, mountPoint, style, instance, attributes):
     root.appendChild(style)
     root.appendChild(mountPoint)
 
-def webcomponent(tag: str, attributes: []):
+def webcomponent(tag: str, attributes: [], mount=mount):
     def wrap(fn):
         # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),window.document.createElement("link"),fn(window.CustomHtml),attributes);}};window.customElements.define(tag, cls, attributes);')
         return fn
