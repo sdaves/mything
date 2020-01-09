@@ -10,10 +10,14 @@ if (workbox) {
   
   workbox.routing.registerRoute(
     /\.html$/,
-    new workbox.strategies.CacheFirst({
+    new workbox.strategies.NetworkFirst({
       cacheName: 'html-cache'
     })
   );
+  
+  workbox.precaching.precacheAndRoute([
+    '/index.html',
+  ]);
 
   workbox.routing.registerRoute(
     // Cache CSS files.
