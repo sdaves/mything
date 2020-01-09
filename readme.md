@@ -12,7 +12,7 @@ Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/03fcd31b-aad4-4
 ## Simple Microfrontend (Client)
 
 ```python
-from mything.microfrontends.core import IHtml, define
+from mything.microfrontends.core import IHtml, webcomponent
 
 @webcomponent('mything-hello', ['name'])
 class HelloFrontend:    
