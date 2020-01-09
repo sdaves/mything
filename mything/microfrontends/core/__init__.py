@@ -28,7 +28,7 @@ def mount(html, element, mountPoint, style, instance, attributes):
     custom = instance.render(attrs)
     provider = html.h(html.ProppyProvider, {}, [custom])
     html.render(provider, mountPoint)    
-    var root = element.attachShadow({ 'mode': 'open' })
+    root = element.attachShadow({ 'mode': 'open' })
     style.rel="stylesheet"
     style.href="js/pure-min.css"
     root.appendChild(style)
