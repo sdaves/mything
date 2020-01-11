@@ -1,9 +1,11 @@
+from dependencies import Injector
 from mything.microfrontends.core import IHtml, webcomponent
+from .HelloFrontend import HelloFrontend
 
-@webcomponent('mything-hello', ['name'])
-class HelloFrontend:    
-    def __init__(self, html: IHtml):
-        self._html = html
-        
-    def render(self, props={'name':'Guest'}):
-        return self._html.h('span', {}, 'Hello {0}!'.format(props['name']))
+ # __pragma__ ('js', '{}', 'IHtml = window.CustomHtml')
+
+class Container(Injector):
+    html = IHtml
+    hello = HelloFrontend
+    
+webcomponent('mything-hello', ['name'], Container.hello)
