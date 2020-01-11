@@ -1,8 +1,5 @@
-from mything.microfrontends.core import IHtml, webcomponent
-
-@webcomponent('mything-counter', ['page'])
 class CounterFrontend:    
-    def __init__(self, html: IHtml):
+    def __init__(self, html):
         self._html = html
         
     def config(self):
@@ -12,8 +9,9 @@ class CounterFrontend:
         )
 
     def render(self, props={'page':'Home', 'counter':0, 'setCounter':lambda x: None}):
-        return self._html.h('div', {}, [
+        root = self._html.h('div', {}, [
             props['page'], 
             props['counter'], 
             self._html.h('button', {'class':'pure-button pure-button-primary','onClick': lambda: props['setCounter'](props['counter']+1)}, '+1')
         ])
+        return self.config()([root])
