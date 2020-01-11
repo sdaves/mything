@@ -6,6 +6,7 @@ authors = ["Stephen Daves <contact@stephendaves.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.6,<4.0"
+dependencies = ">=0.15"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
