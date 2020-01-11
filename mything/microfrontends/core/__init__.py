@@ -29,7 +29,7 @@ class IComponent:
     def mount(self, tag: str, attributes: typing.List, instance: IFrontend):
         pass
     
-class WebComponent(IComponent):
+class PureCssWebComponent(IComponent):
     def mount(self, tag: str, attributes: typing.List, instance: IFrontend):
         def mounter(html, element, mountPoint, style, instance, attributes):
             attrs = dict()
