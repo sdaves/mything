@@ -1,6 +1,7 @@
 class CounterFrontend:    
-    def __init__(self, html):
+    def __init__(self, html, component):
         self._html = html
+        component.mount('mything-counter', ['page'], self)
         
     def config(self):
         return self._html.compose(
