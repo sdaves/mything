@@ -30,7 +30,7 @@ class IComponent:
         pass
     
 class WebComponent(IComponent):
-    def mount(self, tag: str, attributes: [], instance):
+    def mount(self, tag: str, attributes: typing.List, instance: IFrontend):
         def mounter(html, element, mountPoint, style, instance, attributes):
             attrs = dict()
             for item in attributes:
