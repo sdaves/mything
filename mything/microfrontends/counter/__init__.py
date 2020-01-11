@@ -1,6 +1,6 @@
 from dependencies import Injector
 from mything.microfrontends.core import IHtml, webcomponent
-import .CounterFrontend
+from .CounterFrontend import CounterFrontend
 
  # __pragma__ ('js', '{}', 'IHtml = window.CustomHtml')
 
