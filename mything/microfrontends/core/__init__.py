@@ -22,7 +22,7 @@ class IHtml:
         pass
 
 
-def webcomponent(tag: str, attributes: [], customMount=None):
+def webcomponent(tag: str, attributes: [], instance, customMount=None):
     def mountWithStyle(html, element, mountPoint, style, instance, attributes):
         attrs = dict()
         for item in attributes:
@@ -38,9 +38,4 @@ def webcomponent(tag: str, attributes: [], customMount=None):
         root.appendChild(mountPoint)
 
     mount = customMount or mountWithStyle
-    
-    def wrap(fn):
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),window.document.createElement("link"),fn(window.CustomHtml),attributes);}};window.customElements.define(tag, cls, attributes);')
-        return fn
-    
-    return wrap
+    # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mount(window.CustomHtml, this, window.document.createElement("span"),window.document.createElement("link"),instance,attributes);}};window.customElements.define(tag, cls, attributes);')
