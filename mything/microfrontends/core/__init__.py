@@ -3,7 +3,7 @@ import typing
 # __pragma__ ('noskip')
 
 class IFrontend:
-    def render(self, props: dict):
+    def view(self, props: dict):
         pass
 
 class IHtml:
@@ -35,7 +35,7 @@ class WebComponent(IComponent):
             attrs = dict()
             for item in attributes:
                 attrs[item] = element.getAttribute(item)
-            custom = instance.render(attrs)
+            custom = instance.view(attrs)
             provider = html.h(html.ProppyProvider, {}, [custom])
             html.render(provider, mountPoint)    
             root = element.attachShadow({ 'mode': 'open' })
