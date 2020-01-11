@@ -7,7 +7,7 @@ class IFrontend:
         pass
 
 class IHtml:
-    def h(*args):
+    def h(name: str, props: dict, children: typing.List):
         pass
     
     def compose(*args):
@@ -22,11 +22,11 @@ class IHtml:
     def attach(*args):
         pass
     
-    def render(*args):
+    def render(instance: IFrontend, mountPoint):
         pass
 
 class IComponent:
-    def mount(self):
+    def mount(self, tag: str, attributes: typing.List, instance: IFrontend):
         pass
     
 class WebComponent(IComponent):
