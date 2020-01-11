@@ -2,6 +2,10 @@
 import typing
 # __pragma__ ('noskip')
 
+class IFrontend:
+    def render(self, props: dict):
+        pass
+
 class IHtml:
     def h(*args):
         pass
