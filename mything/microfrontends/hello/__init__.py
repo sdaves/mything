@@ -1,5 +1,5 @@
 from dependencies import Injector
-from mything.microfrontends.core import IHtml, webcomponent
+from mything.microfrontends.core import IHtml, WebComponent
 from mything.microfrontends.hello.HelloFrontend import HelloFrontend
 
  # __pragma__ ('js', '{}', 'IHtml = window.CustomHtml')
@@ -7,5 +7,6 @@ from mything.microfrontends.hello.HelloFrontend import HelloFrontend
 class Container(Injector):
     html = IHtml
     hello = HelloFrontend
+    component = WebComponent
     
-webcomponent('mything-hello', ['name'], Container.hello)
+Container.hello # calls frontend constructor
