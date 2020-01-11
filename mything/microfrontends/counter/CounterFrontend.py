@@ -1,6 +1,6 @@
-from mything.microfrontends.core import IHtml, IComponent
+from mything.microfrontends.core import IHtml, IComponent, IFrontend
 
-class CounterFrontend:    
+class CounterFrontend(IFrontend):    
     def __init__(self, html: IHtml, component: IComponent):
         self._html = html
         component.mount('mything-counter', ['page'], self)
