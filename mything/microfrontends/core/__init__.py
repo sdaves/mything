@@ -45,4 +45,6 @@ class PureCssWebComponent(IComponent):
             root.appendChild(style)
             root.appendChild(mountPoint)
 
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){mounter(window.CustomHtml, this, window.document.createElement("span"),window.document.createElement("link"),instance,attributes);}};window.customElements.define(tag, cls, attributes);')
+        # __pragma__ ('js', '{}', 'function callback(me, create) { mounter(CustomHtml, me, create("span"), create("link"), instance, attributes)}')
+        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){callback(this, document.createElement)}')
+        # __pragma__ ('js', '{}', 'customElements.define(tag, cls, attributes);')
