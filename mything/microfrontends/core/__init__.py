@@ -48,5 +48,5 @@ class PureCssWebComponent(IComponent):
         def cb(html, me, create):
             mounter(html, me, create("span"), create("link"), instance, attributes)
             
-        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){cb(window.CustomHtml, this, document.createElement)}')
+        # __pragma__ ('js', '{}', 'class cls extends HTMLElement{connectedCallback(){cb(window.CustomHtml, this, document.createElement)}}')
         # __pragma__ ('js', '{}', 'window.customElements.define(tag, cls, attributes);')
