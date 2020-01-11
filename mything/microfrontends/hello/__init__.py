@@ -6,7 +6,7 @@ from mything.microfrontends.hello.HelloFrontend import HelloFrontend
 
 class Container(Injector):
     html = IHtml
-    hello = HelloFrontend
+    frontend = HelloFrontend
     component = WebComponent
     
-Container.hello # calls frontend constructor
+Container.frontend # calls frontend constructor
